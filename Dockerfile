@@ -1,6 +1,7 @@
 FROM centos:7
 MAINTAINER Patricio Felipe Caceres <desarrollos@nuruve.cl>
 
+ENV LANG en_US.UTF-8
 
 RUN yum update -y 
 
@@ -51,7 +52,7 @@ RUN /usr/bin/python3.6 -m pip install --no-cache-dir psycogreen gdata
 # RUN npm install -g less less-plugin-clean-css
 
 RUN echo "Se instalan dependencias para modulos DTE"
-RUN /usr/bin/python3.6 -m pip install --no-cache-dir rsa cython future elaphe raven xmltodict dicttoxml pdf417gen cchardet py-wsse client suds-py3 urllib3
+RUN /usr/bin/python3.6 -m pip install --no-cache-dir rsa cython future elaphe raven xmltodict dicttoxml pdf417gen cchardet py-wsse suds-py3 urllib3
 RUN /usr/bin/python3.6 -m pip install --no-cache-dir signxml pysftp num2words xlsxwriter Boto FileChunkIO rotate-backups oauthlib phonenumbers geojson shapely
 RUN /usr/bin/python3.6 -m pip install --no-cache-dir suds requests_oauthlib oauthlib boto3 business_calendar email-validator phonenumbers 
 RUN /usr/bin/python3.6 -m pip install --no-cache-dir requests --upgrade
@@ -74,6 +75,7 @@ RUN /usr/bin/python3.6 -m pip install --no-cache-dir signxml --upgrade
 
 
 RUN /usr/bin/python3.6 -m pip install --no-cache-dir simplejson numpy xmltodict dicttoxml cchardet pdf417gen transbank-sdk inotify xlrd==1.2.0
+
 
 EXPOSE 8069 8072
 USER odoo
