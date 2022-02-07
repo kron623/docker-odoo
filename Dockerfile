@@ -76,7 +76,7 @@ RUN /usr/bin/python3.6 -m pip install --no-cache-dir signxml --upgrade
 
 RUN /usr/bin/python3.6 -m pip install --no-cache-dir simplejson numpy xmltodict dicttoxml cchardet pdf417gen transbank-sdk inotify xlrd==1.2.0
 
-
+RUN chmod 777 -R /tmp && chmod o+t -R /tmp
 EXPOSE 8069 8072
 USER odoo
 
