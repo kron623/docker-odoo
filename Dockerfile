@@ -54,7 +54,7 @@ RUN /usr/bin/python3.6 -m pip install --no-cache-dir psycogreen gdata
 RUN echo "Se instalan dependencias para modulos DTE"
 RUN /usr/bin/python3.6 -m pip install --no-cache-dir rsa cython future elaphe raven xmltodict dicttoxml pdf417gen cchardet py-wsse suds-py3 urllib3
 RUN /usr/bin/python3.6 -m pip install --no-cache-dir signxml pysftp num2words xlsxwriter Boto FileChunkIO rotate-backups oauthlib phonenumbers geojson shapely
-RUN /usr/bin/python3.6 -m pip install --no-cache-dir suds requests_oauthlib oauthlib boto3 business_calendar email-validator phonenumbers 
+RUN /usr/bin/python3.6 -m pip install --no-cache-dir suds requests_oauthlib oauthlib boto3 business_calendar email-validator phonenumbers iteration_utilities psycopg2-binary
 RUN /usr/bin/python3.6 -m pip install --no-cache-dir requests --upgrade
 
 #ADD https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox-0.12.5-1.centos7.x86_64.rpm /root
@@ -65,7 +65,7 @@ ADD config-files/requirements.txt /
 RUN sed -i "/lxml==3.7.1 ; sys_platform != 'win32' and python_version < '3.7'/d" /requirements.txt
 RUN sed -i "/lxml==4.2.3 ; sys_platform != 'win32' and python_version >= '3.7'/d" /requirements.txt
 RUN sed -i "s/lxml ; sys_platform == 'win32'/lxml/" /requirements.txt
-RUN sed -i "s/psycopg2==2.7.3.1; sys_platform != 'win32'/psycopg2-binary; sys_platform != 'win32'/" /requirements.txt
+
 RUN sed -i "s/requests==2.20.0/requests/" /requirements.txt
 
 #echo "Se instalan dependencias de odoo"
